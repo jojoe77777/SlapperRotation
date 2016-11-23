@@ -13,12 +13,19 @@ use pocketmine\plugin\PluginBase;
 class Main extends PluginBase implements Listener {
 
     public function onEnable(){
+        $this->saveDefaultConfig();
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
 
     public function onPlayerMove(PlayerMoveEvent $ev){
         $player = $ev->getPlayer();
-        foreach($player->getLevel()->getNearbyEntities($player->getBoundingBox()->grow(32, 8, 32), $player) as $e){
+        $from = $ev->getFrom();
+        $to = $ev->getTo();
+        if($from->distance($to) < 0.1){
+            return;
+        }
+        $maxDistance = $this->getConfig()->get("max-distance");
+        foreach($player->getLevel()->getNearbyEntities($player->getBoundingBox()->grow($maxDistance, $maxDistance, $maxDistance), $player) as $e){
             if($e instanceof Player){
                 continue;
             }
