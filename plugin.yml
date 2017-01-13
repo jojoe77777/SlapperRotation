@@ -1,6 +1,6 @@
 name: SlapperRotation
 main: SlapperRotation\Main
 version: 1.0.1
-api: [2.0.0, 3.0.0-ALPHA1]
+api: [2.0.0, 3.0.0-ALPHA1, 3.0.0-ALPHA2]
 author: jojoe77777
 description: Slappers look at players!
