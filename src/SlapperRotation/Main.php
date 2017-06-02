@@ -5,8 +5,8 @@ namespace SlapperRotation;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\math\Vector2;
-use pocketmine\network\protocol\MoveEntityPacket;
-use pocketmine\network\protocol\MovePlayerPacket;
+use pocketmine\network\mcpe\protocol\MoveEntityPacket;
+use pocketmine\network\mcpe\protocol\MovePlayerPacket;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 
