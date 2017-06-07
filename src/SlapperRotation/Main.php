@@ -47,7 +47,8 @@ class Main extends PluginBase implements Listener {
 
             if($e->getSaveId() === "SlapperHuman"){
                 $pk = new MovePlayerPacket();
-                $pk->eid = $e->getId();
+                $pk->eid = $e->getId(); // TODO: remove
+                $pk->entityRuntimeId = $e->getId();
                 $pk->x = $e->x;
                 $pk->y = $e->y + $e->getEyeHeight();
                 $pk->z = $e->z;
@@ -56,7 +57,8 @@ class Main extends PluginBase implements Listener {
                 $pk->bodyYaw = $yaw;
             } else {
                 $pk = new MoveEntityPacket();
-                $pk->eid = $e->getId();
+                $pk->eid = $e->getId(); // TODO: remove
+                $pk->entityRuntimeId = $e->getId();
                 $pk->x = $e->x;
                 $pk->y = $e->y + $e->offset;
                 $pk->z = $e->z;
