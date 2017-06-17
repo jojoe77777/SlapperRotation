@@ -55,6 +55,7 @@ class Main extends PluginBase implements Listener {
                 $pk->yaw = $yaw;
                 $pk->pitch = $pitch;
                 $pk->bodyYaw = $yaw;
+                $pk->onGround = $e->onGround;
             } else {
                 $pk = new MoveEntityPacket();
                 $pk->eid = $e->getId(); // TODO: remove
