@@ -32,8 +32,13 @@ class Main extends PluginBase implements Listener {
             if(substr($e->getSaveId(), 0, 7) !== "Slapper"){
                 continue;
             }
-            if($e->getSaveId() === "SlapperFallingSand"){
-                continue;
+            switch($e->getSaveId()){
+                case "SlapperFallingSand":
+                case "SlapperMinecart":
+                case "SlapperBoat":
+                case "SlapperPrimedTNT":
+                case "SlapperShulker":
+                    continue 2;
             }
             $xdiff = $player->x - $e->x;
             $zdiff = $player->z - $e->z;
@@ -47,7 +52,6 @@ class Main extends PluginBase implements Listener {
 
             if($e->getSaveId() === "SlapperHuman"){
                 $pk = new MovePlayerPacket();
-                $pk->eid = $e->getId(); // TODO: remove
                 $pk->entityRuntimeId = $e->getId();
                 $pk->x = $e->x;
                 $pk->y = $e->y + $e->getEyeHeight();
@@ -58,10 +62,9 @@ class Main extends PluginBase implements Listener {
                 $pk->onGround = $e->onGround;
             } else {
                 $pk = new MoveEntityPacket();
-                $pk->eid = $e->getId(); // TODO: remove
                 $pk->entityRuntimeId = $e->getId();
                 $pk->x = $e->x;
-                $pk->y = $e->y + $e->offset;
+                $pk->y = $e->y;
                 $pk->z = $e->z;
                 $pk->yaw = $yaw;
                 $pk->headYaw = $yaw;
