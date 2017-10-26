@@ -56,7 +56,7 @@ class Main extends PluginBase implements Listener {
 				$pk->position = $e->asVector3()->add(0, $e->getEyeHeight(), 0);
 				$pk->yaw = $yaw;
 				$pk->pitch = $pitch;
-				$pk->bodyYaw = $yaw;
+				$pk->headYaw = $yaw;
 				$pk->onGround = $e->onGround;
 			} else {
 				$pk = new MoveEntityPacket();
