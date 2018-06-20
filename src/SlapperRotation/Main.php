@@ -25,7 +25,7 @@ class Main extends PluginBase implements Listener {
 			return;
 		}
 		$maxDistance = $this->getConfig()->get("max-distance");
-		foreach ($player->getLevel()->getNearbyEntities($player->getBoundingBox()->grow($maxDistance, $maxDistance, $maxDistance), $player) as $e) {
+		foreach ($player->getLevel()->getNearbyEntities($player->getBoundingBox()->expandedCopy($maxDistance, $maxDistance, $maxDistance), $player) as $e) {
 			if($e instanceof Player) {
 				continue;
 			}
