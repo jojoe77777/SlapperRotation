@@ -5,7 +5,7 @@ namespace SlapperRotation;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\math\Vector2;
-use pocketmine\network\mcpe\protocol\MoveEntityPacket;
+use pocketmine\network\mcpe\protocol\MoveEntityAbsolutePacket;
 use pocketmine\network\mcpe\protocol\MovePlayerPacket;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
@@ -59,7 +59,7 @@ class Main extends PluginBase implements Listener {
 				$pk->headYaw = $yaw;
 				$pk->onGround = $e->onGround;
 			} else {
-				$pk = new MoveEntityPacket();
+				$pk = new MoveEntityAbsolutePacket();
 				$pk->entityRuntimeId = $e->getId();
 				$pk->position = $e->asVector3();
 				$pk->yaw = $yaw;
