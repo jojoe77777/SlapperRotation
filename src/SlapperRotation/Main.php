@@ -29,6 +29,9 @@ class Main extends PluginBase implements Listener {
 			if($e instanceof Player) {
 				continue;
 			}
+                        if(!($e instanceof SlapperEntity)){
+                                continue;
+                        }
 			if(substr($e->getSaveId(), 0, 7) !== "Slapper") {
 				continue;
 			}
